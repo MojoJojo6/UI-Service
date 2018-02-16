@@ -1,2 +1,2 @@
 # UI-Service
-It Provides HTML, CSS and static files for Web Application.
+It provides HTML, CSS and static files for Web Application.
