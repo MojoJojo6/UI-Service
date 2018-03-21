@@ -1,11 +1,10 @@
 from django.urls import path
-from django.conf.urls import url,include
-from .views import *
-from . import views
+from .views import (Index, Login, Register, Homepage, UserDashboard)
 
 urlpatterns = [
-    path('', views.login),
-    path('register/',register.as_view()),
-    path('home/',homepage.as_view())
-
+    path('', Index.as_view(), name='index-page'),
+    path('login/', Login.as_view(), name='login-page'),
+    path('register/', Register.as_view(), name='register-page'),
+    path('home/', Homepage.as_view(), name='homepage'),
+    path('user-dashboard/', UserDashboard.as_view(), name='user-dashboard')
 ]

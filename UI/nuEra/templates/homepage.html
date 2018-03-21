@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>home</title>
-</head>
-<body>
-    <h1>Page Under Construction</h1>
-</body>
-</html>
+{% load staticfiles %}
+<div ng-controller="HomeController as homeCntrl" layout-fill flex layout="column" layout-align="center center" ng-style="{'background': 'linear-gradient(to bottom right, #64FFDA, #E040FB)'}">
+  <md-card ng-style="{'min-width' : '500px', 'min-height' : '500px'}" layout="column" layout="center center">
+    <div flex layout="row" layout-align="center center"><h1 class="md-display-3">Welcome!</h1></div>
+    <div layout="row" layout-align="center center"><img src="{% static 'media/Homepage-logo.png' %}" width="200px" height="200px"></img></div>
+    <div flex layout="row" layout-align="center center"> <h2 class="md-headline">Creating a Community of Learners</h2> </div>
+    <div layout="row" layout-align="center center" flex>
+      <md-button layout-margin ng-click="mainCntrl.url = 'login/'">Login</md-button>
+      <md-button layout-margin ng-click="mainCntrl.url = 'register/'">Register</md-button>
+    </div>
+  </md-card>
+</div>

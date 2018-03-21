@@ -1,107 +1,77 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>register</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
-    <script src="{% static 'js/scriptRegister.js' %}"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="{% static 'css/styleregister.css' %}">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-</head>
 {% verbatim %}
-<body ng-app="signup" ng-controller="registerController as register" ng-cloak layout-fill>
-    <div class="bg" layout="row" layout-align="center center"  flex layout-fill>
-            <md-card class="md-padding" ng-style="{'width': '800px','margin': '50px'}" layout="column">
-                <div layout="row" layout-align="space-between start" flex layout-wrap>
-                  <span layout="column" layout-align="space-between start" flex>
-                      <span class="md-headline" >Sign Up</span>
-                      <span class="md-subhead">Fill in the form below to get instant access</span>
-                  </span>
-                    <i class="material-icons">mode_edit</i>
-               </div>
-                 <div class="md-padding" layout="column" layout-align="start center" layout-wrap>
-                     <form name="registrationform" layout-fill>
-                          <div class="firstrow" layout="row" flex>
-                            <md-input-container class="md-block" flex>
-                                 <label>First Name</label>
-                                 <input required name="clientfirstname" ng-model="register.clientfirstname">
-                                 <div ng-messages="registrationform.clientfirstname.$error">
-                                     <div ng-message="required">This is required</div>
-                                 </div>
-                            </md-input-container>
-                              <md-input-container class="md-block" flex>
-                                 <label>Last Name</label>
-                                 <input required name="clientlastname" ng-model="register.clientlastname">
-                                 <div ng-messages="registrationform.clientlastname.$error">
-                                     <div ng-message="required">This is required</div>
-                                 </div>
-                         </md-input-container>
-                          </div>
-                         <div class="secondrow" layout="row" flex>
-                                <md-input-container class="md-block" flex>
-                             <label>Email</label>
-                             <input required type="email" name="clientemail" ng-model="register.clientemail">
-                             <div ng-messages ="registrationform.clientemail.$error">
-                                 <div ng-message="required">Your email is required of characters 10-100</div>
-                             </div>
-                         </md-input-container>
-                         <md-input-container class="md-block" flex>
-                             <label>Password</label>
-                             <input required type="password" name="clientpassword" ng-model="register.clientpassword">
-                             <div ng-messages="registrationform.clientpassword.$error">
-                                 <div ng-message="required">This is required</div>
-                             </div>
-                         </md-input-container>
-                         </div>
-                         <div class="thirdrow" layout="row" flex>
-                             <md-input-container class="md-block">
-                             <label>Mobile Number</label>
-                             <input required md-maxlength="20" name="clientmobilenumber" ng-model="register.clientmobilenumber">
-                             <div ng-messages="registrationform.clientmobilenumber.$error">
-                                 <div ng-message="required">This is required</div>
-                             </div>
-                         </md-input-container>
-                              <md-input-container class="md-block" flex>
-                                 <label>Role</label>
-                                 <md-select required ng-model="register.clientrole" ng-change="register.roleChange()">
-                                    <md-option ng-repeat="option in register.roles" value="{{ option.id }}">
-                                        {{ option.display }}
-                                    </md-option>
-                                 </md-select>
-                                   <div ng-messages="registrationform.clientrole.$error">
-                                 <div ng-message="required">This is required</div>
-                             </div>
-                             </md-input-container>
-                         </div>
-                         <div class="fourthrow" layout="row" flex>
-                             <div layout="row" layout-align="space-around center" flex>
-                            <md-checkbox ng-model="register.staff" ng-disabled="register.clientrole != 0" class="md-primary">
-                                Staff
-                            </md-checkbox>
-                              <md-checkbox ng-model="register.admin" ng-disabled="register.clientrole != 0" class="md-primary">
-                                Admin
-                            </md-checkbox>
-                             <md-checkbox ng-model="register.active" ng-disabled="register.active" ng-init="register.active = true" class="md-activate">
-                                 Active
-                             </md-checkbox>
-                         </div>
-                         </div>
-                         <div layout="row" layout-align="space-between center" flex>
-                              <md-button class="md-raised md-primary" >back</md-button>
-                              <md-button class="md-raised md-primary" ng-click="register.onPost()">Post</md-button>
-                         </div>
-                     </form>
+<div ng-controller="RegisterController as register" layout="row" layout-align="center center" layout-fill flex ng-style="{'background': 'linear-gradient(to bottom right, #64FFDA, #E040FB)'}">
+  <md-card md-whiteframe="3" class="md-padding" ng-style="{'min-width' : '500px', 'min-height' : '500px'}">
+    <h1 class="md-display-3">Register</h1>
+    <form name="registrationform" layout-fill flex>
 
-                 </div>
-      </md-card>
-    </div>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-   <!-- Angular Material Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-</body>
+      <div class="firstrow" layout="row" flex>
+        <md-input-container class="md-block" flex>
+             <label>First Name</label>
+             <input required name="clientfirstname" ng-model="register.clientfirstname">
+             <div ng-messages="registrationform.clientfirstname.$error">
+                 <div ng-message="required">This is required</div>
+             </div>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+             <label>Last Name</label>
+             <input required name="clientlastname" ng-model="register.clientlastname">
+             <div ng-messages="registrationform.clientlastname.$error">
+                 <div ng-message="required">This is required</div>
+             </div>
+        </md-input-container>
+      </div>
+
+      <div class="secondrow" layout="row" flex>
+        <md-input-container class="md-block" flex>
+          <label>Email</label>
+          <input required type="email" name="clientemail" ng-model="register.clientemail">
+          <div ng-messages ="registrationform.clientemail.$error">
+              <div ng-message="required">Your email is required of characters 10-100</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label>Password</label>
+          <input required type="password" name="clientpassword" ng-model="register.clientpassword">
+          <div ng-messages="registrationform.clientpassword.$error">
+              <div ng-message="required">This is required</div>
+          </div>
+        </md-input-container>
+      </div>
+
+      <div class="thirdrow" layout="row" flex>
+        <md-input-container class="md-block">
+          <label>Mobile Number</label>
+          <input required md-maxlength="20" name="clientmobilenumber" ng-model="register.clientmobilenumber">
+          <div ng-messages="registrationform.clientmobilenumber.$error">
+              <div ng-message="required">This is required</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label>Role</label>
+          <md-select required ng-model="register.clientrole" ng-change="register.roleChange()">
+             <md-option ng-repeat="option in register.roles" value="{{ option.id }}">
+                 {{ option.display }}
+             </md-option>
+          </md-select>
+          <div ng-messages="registrationform.clientrole.$error">
+            <div ng-message="required">This is required</div>
+          </div>
+        </md-input-container>
+      </div>
+
+      <div class="fourthrow" layout="row" flex>
+        <div layout="row" layout-align="space-around center" flex>
+          <md-checkbox ng-model="register.staff" ng-disabled="register.clientrole != 0" class="md-primary">Staff</md-checkbox>
+           <md-checkbox ng-model="register.admin" ng-disabled="register.clientrole != 0" class="md-primary">Admin</md-checkbox>
+          <md-checkbox ng-model="register.active" ng-disabled="register.active" ng-init="register.active = true" class="md-activate">Active</md-checkbox>
+        </div>
+      </div>
+
+      <div layout="row" layout-align="space-between center" flex>
+        <a href="" ng-style="{'font-size': '13px'}" ng-click="register.onNotYetRegistered(mainCntrl)">Already a User?</a>
+        <md-button layout-margin class="md-raised md-primary" ng-click="register.onPost(mainCntrl)">Register</md-button>
+      </div>
+    </form>
+  </md-card>
+</div>
 {% endverbatim %}
-</html>
