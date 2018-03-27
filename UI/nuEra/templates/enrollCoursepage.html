@@ -8,21 +8,21 @@
       </md-button>
     </div>
     <div layout="row" layout-align="center center">
-      <md-card ng-style="{'border-radius':'50%', 'width':'100px'}">
-        <img src="http://via.placeholder.com/75x75"></img>
-      </md-card>
+      <div md-whiteframe="3" ng-style="{'border-radius':'50%', 'width' : '100px', 'height' : '100px'}">
+        <img ng-style="{'border-radius':'50%'}" src="http://via.placeholder.com/100x100"></img>
+      </div>
     </div>
   </div>
-  <div layout="column" flex="60" layout-padding layout-align="center center">
-    <div layout="row" ng-style="{'width':'800px'}" layout-align="start end">
-      <h3 class="md-subhead">About Course</h3>
+  <div layout="column" flex="60" layout-padding layout-align="center center" ng-style="{'background-color' : '#FFFFFF'}">
+    <div layout="row" ng-style="{'width':'800px'}" layout-align="start center">
+      <label class="md-headline">About Course</label>
     </div>
-    <md-card class="md-whiteframe-9dp" layout-wrap layout="column" ng-style="{'width':'800px'}">
+    <div layout-wrap layout="column" ng-style="{'width':'800px', 'background-color' : '#FAFAFA', 'border-radius' : '2%'}">
       <p>
         {{ enrollCourseCntrl.description }}
       </p>
-    </md-card>
-    <div class="dialog-demo-content" layout="row" layout-align="end end" ng-style="{'width':'800px'}">
+    </div>
+    <div layout="row" layout-align="end end" ng-style="{'width':'800px'}">
       <md-button md-no-ink class="md-raised md-primary" ng-click="enrollCourseCntrl.showConfirm($event)">Enroll</md-button>
     </div>
   </div>

@@ -1,4 +1,9 @@
 {% load staticfiles %}
-<div ng-controller="courseLessonViewpage as course-Lesson" ng-cloak>
-  
+<div ng-controller="courseLessonViewpage as courseLesson" layout="column" layout-align="space-around center" flex layout-fill ng-style="{'background': 'linear-gradient(to bottom right, #64FFDA, #E040FB)'}">
+
+  <md-card ng-repeat="lesson in courseLesson.course.lessons" layout="column" layout-align="center start" ng-style="{'max-width' : '800px'}" ng-click="courseLesson.navigate(mainCntrl, lesson)">
+    <label class="md-title">{{lesson.lesson_name}}</label>
+    <p class="md-body-1">{{lesson.lesson_description}}</p>
+  </md-card>
+
 </div>

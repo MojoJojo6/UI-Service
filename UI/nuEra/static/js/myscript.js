@@ -64,7 +64,7 @@ my_app.controller('RegisterController', function($http, dataService){
     // noinspection JSAnnotator
 
     self.onNotYetRegistered = function (mainCntrl) {
-        mainCntrl.url = 'register/'
+        mainCntrl.url = 'login/'
     };
 
     self.roleChange = function () {
