@@ -33,6 +33,18 @@ class Homepage(TemplateView):
 
 class UserDashboard(TemplateView):
     """
-    Template View of Homepage.
+    Template View of UserDashboard.
     """
     template_name = "user_dashboard.html"
+
+class EnrollCourse(TemplateView):
+    """
+    Template View of EnrollCourse
+    """
+    template_name = "enrollCoursepage.html"
+
+class CourseLessonList(TemplateView):
+    """
+    TemplateView of CourseLessonList
+    """
+    template_name = "courseLessonViewpage.html"

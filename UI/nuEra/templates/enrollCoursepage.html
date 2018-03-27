@@ -1,0 +1,30 @@
+{% load staticfiles %}
+{% verbatim %}
+<div ng-controller="EnrollCoursePage as enrollCourseCntrl" layout="column" ng-cloak flex layout-fill>
+  <div layout="column" flex="40" ng-style="{'background': 'linear-gradient(to bottom right, #64FFDA, #E040FB)'}" layout-align="space-between center">
+    <div layout="row" flex="50" layout-align="start start" ng-style="{'width':'100%'}">
+      <md-button class="md-icon-button" ng-click="mainCntrl.url = 'user-dashboard/'">
+        <md-icon md-svg-icon="arrow-left"></md-icon>
+      </md-button>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-card ng-style="{'border-radius':'50%', 'width':'100px'}">
+        <img src="http://via.placeholder.com/75x75"></img>
+      </md-card>
+    </div>
+  </div>
+  <div layout="column" flex="60" layout-padding layout-align="center center">
+    <div layout="row" ng-style="{'width':'800px'}" layout-align="start end">
+      <h3 class="md-subhead">About Course</h3>
+    </div>
+    <md-card class="md-whiteframe-9dp" layout-wrap layout="column" ng-style="{'width':'800px'}">
+      <p>
+        {{ enrollCourseCntrl.description }}
+      </p>
+    </md-card>
+    <div class="dialog-demo-content" layout="row" layout-align="end end" ng-style="{'width':'800px'}">
+      <md-button md-no-ink class="md-raised md-primary" ng-click="enrollCourseCntrl.showConfirm($event)">Enroll</md-button>
+    </div>
+  </div>
+</div>
+{% endverbatim %}

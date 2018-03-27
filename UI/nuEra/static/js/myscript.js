@@ -1,8 +1,12 @@
 var my_app = angular.module('MyApp',['ngMaterial','ngMessages']);
 
+my_app.config(function($mdIconProvider){
+  $mdIconProvider.defaultIconSet('/static/assets/mdi.svg')
+});
+
 my_app.factory("dataService", function(){
   return {}
-})
+});
 
 my_app.config(function($mdIconProvider, $httpProvider){
   // delete $httpProvider.defaults.headers.common['X-Requested-With'];
@@ -104,7 +108,7 @@ my_app.controller('RegisterController', function($http, dataService){
 
 var check= {}
 
-my_app.controller('userDashboard', function(dataService){
+my_app.controller('userDashboard', function(dataService,$scope,$timeout,$mdSidenav){
 
    var self = this;
 
@@ -115,7 +119,7 @@ my_app.controller('userDashboard', function(dataService){
    self.categories = [
 
      {
-       category_name : 'Your Enrolled Courses',
+       category_name : 'Current Courses',
        courses : [
          {course_name : 'Course 1'},
          {course_name : 'Course 2'},
@@ -176,5 +180,41 @@ my_app.controller('userDashboard', function(dataService){
      },
 
    ]
+   self.toggleLeft = buildToggler('left');
+   self.toggleRight = buildToggler('right');
+
+   function buildToggler(componentId){
+     return function() {
+       $mdSidenav(componentId).toggle();
+     };
+   }
+   self.navigate = function(mainCntrl,course){
+     mainCntrl.url = 'enroll-course/';
+     console.log(course);
+     dataService.selectedCourse = course;
+   }
+
+});
+
+my_app.controller('EnrollCoursePage', function(dataService,$mdDialog,$scope){
+
+  var self = this;
+  self.course = dataService.selectedCourse;
+  self.description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+  self.showConfirm = function(ev){
+    var confirm = $mdDialog.confirm()
+      .title('Would you like to enroll in this course?')
+      .textContent('Confirm to enroll in course')
+      .ariaLabel('Confirm if you want to enroll')
+      .targetEvent(ev)
+      .ok('Start Course')
+      .cancel('Cancel')
+
+      $mdDialog.show(confirm).then(function(mainCntrl){
+        mainCntrl.url = 'course-lessonview/';
+      }, function(){
+
+      });
+  }
 
 });

@@ -1,26 +1,28 @@
 {% verbatim %}
 <div ng-controller="userDashboard as dashCntrl" layout-fill flex layout="row">
-  <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+  <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="4">
     <md-toolbar class="md-theme-indigo" layout="row">
-      <div flex="70" class="md-padding" layout="column">
-        <label class="md-headline">Welcome, {{dashCntrl.user.first_name}}</h1>
+      <div flex class="md-padding" layout="column">
+        <label class="md-title">Welcome, {{dashCntrl.user.first_name}}</label>
         <label class="md-caption">{{dashCntrl.user.email_id}}</label>
       </div>
-      <div flex="30">
-        <md-button class="md-icon-button"></md-button>
-      </div>
     </md-toolbar>
-    <md-content>
-
+    <md-content layout="column" layout-fill>
+      <md-button class="md-accent" flex  ng-repeat="category in dashCntrl.categories">{{category.category_name}} </md-button>
     </md-content>
   </md-sidenav>
   <md-content flex layout-padding layout="column" ng-style="{'background-color': '#ffffff'}">
+    <div>
+      <md-button class="md-icon-button" ng-click="dashCntrl.toggleLeft()" hide-gt-sm>
+        <md-icon md-svg-icon="menu"></md-icon>
+      </md-button>
+    </div>
     <div layout-padding layout="column" flex ng-repeat="category in dashCntrl.categories" ng-style="{'min-height' : '500px'}">
 
       <h1 class="md-display-1">{{category.category_name}}</h1>
 
       <div layout="row" ng-style="{'overflow-x' : 'auto', 'overflow-y' : 'hidden'}">
-        <md-card layout="column" ng-repeat="course in category.courses" md-whiteframe="2" layout-wrap>
+        <md-card layout="column" ng-repeat="course in category.courses" md-whiteframe="2" ng-click="dashCntrl.navigate(mainCntrl,course)" layout-wrap>
             <div ng-style="{'width' : '300px', 'height' : '300px'}"><img src="http://via.placeholder.com/300x300"></div>
             <div layout-padding><label>{{course.course_name}}</label></div>
         </md-card>
