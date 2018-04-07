@@ -8,7 +8,7 @@
       </div>
     </md-toolbar>
     <md-content layout="column" layout-fill>
-      <md-button class="md-accent" flex  ng-repeat="category in dashCntrl.categories">{{category.category_name}} </md-button>
+      <md-button class="md-accent" ng-repeat="category in dashCntrl.categories" ng-style="{'width' : '100%', 'height' : '40px', 'margin' : '0px'}">{{category.category_name}} </md-button>
     </md-content>
   </md-sidenav>
   <md-content flex layout-padding layout="column" ng-style="{'background-color': '#ffffff'}">
@@ -23,7 +23,7 @@
 
       <div layout="row" ng-style="{'overflow-x' : 'auto', 'overflow-y' : 'hidden'}">
         <md-card layout="column" ng-repeat="course in category.courses" md-whiteframe="2" ng-click="dashCntrl.navigate(mainCntrl,course)" layout-wrap>
-            <div ng-style="{'width' : '300px', 'height' : '300px'}"><img src="http://via.placeholder.com/300x300"></div>
+            <div ng-style="{'width' : '300px', 'height' : '300px'}"><img src="https://picsum.photos/300/300/?random"></div>
             <div layout-padding><label>{{course.course_name}}</label></div>
         </md-card>
       </div>

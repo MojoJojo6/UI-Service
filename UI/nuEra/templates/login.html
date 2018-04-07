@@ -19,11 +19,11 @@
       <div layout="row" flex>
         <div flex="50" layout="row" layout-align="start center">
           <div layout="row" layout-align="space-between center" layout-fill flex>
-            <a href="" ng-style="{'font-size': '13px'}" ng-click="SignIn.onNotYetRegistered(mainCntrl)">Not Registered?</a>
+            <a href="" ng-style="{'font-size': '13px','text-decoration':'none'}" ng-click="SignIn.onNotYetRegistered(mainCntrl)">Not Registered?</a>
           </div>
         </div>
         <div flex="50" layout="row" layout-align="end center">
-          <md-button class="md-raised md-primary" ng-disabled="!SignIn.email && !SignIn.password" ng-click="SignIn.onLogin(mainCntrl)">Login</md-button>
+          <md-button class="md-raised md-primary" ng-disabled="!SignIn.email && !SignIn.password" ng-click="SignIn.onLogin($event, mainCntrl)">Login</md-button>
         </div>
       </div>
     </form>
