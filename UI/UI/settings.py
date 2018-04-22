@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'nuEra.User'
 
 # Application definition
 
@@ -72,14 +73,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'UI.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'CapstoneUserDB.sqlite3',
     }
 }
 
