@@ -5,9 +5,9 @@ var course_Service_port = '8001';
 var forum_discussion_port = '8002';
 var ui_service_port = '8003';
 
-var domain_ip_addr = 'http://127.0.0.1:'
+var domain_ip_addr = 'http://13.232.39.58:'
 
-var forum_domain = '127.0.0.1:';
+var forum_domain = '13.232.39.58:';
 
 var user_service_csrf = "";
 
