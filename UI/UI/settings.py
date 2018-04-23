@@ -25,7 +25,7 @@ SECRET_KEY = '_f7qq*4$t6v!uzv69n(b!jm^p!mrd6=2pi1v3j7x9#ynxs$u#$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['13.232.39.58', '127.0.0.1']
 
 AUTH_USER_MODEL = 'nuEra.User'
 
