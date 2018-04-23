@@ -2,17 +2,17 @@
 <div layout="row" ng-controller="playlistController as playlistCntrl" flex layout-fill>
   <md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="4">
     <md-toolbar class="md-theme-indigo" layout="row" layout-align="start center">
-      <md-button class="md-icon-button" ng-click="mainCntrl.url = 'course/lessonview/'" ng-style="">
+      <md-button class="md-icon-button" ng-click="mainCntrl.url = 'lesson/playlist'">
         <md-icon md-svg-icon="arrow-left"></md-icon>
       </md-button>
       <label class="md-title">{{playlistCntrl.lesson.lesson_name}}</label>
     </md-toolbar>
     <md-content layout="column" ng-style="{'background-color': '#ffffff'}" flex>
-      <div ng-style="{'width' : '100%', 'height' : '40px', 'margin' : '0px'}" ng-click="playlistCntrl.itemSelected=item" ng-repeat="item in playlistCntrl.lesson.lesson_items">
+      <div ng-style="{'width' : '100%', 'height' : '40px', 'margin' : '0px'}" ng-click="playlistCntrl.itemSelected=item" ng-repeat="item in playlistCntrl.lesson.litems">
         <md-button flex layout-fill layout="row" layout-align="start center">
           <!--<md-icon md-svg-icon="check"></md-icon>-->
           <div flex layout-fill layout="row" layout-align="center center">
-            {{item.lesson_item_name}}
+            {{item.litem_name}}
           </div>
         </md-button>
       </div>
@@ -21,17 +21,18 @@
   <md-content flex ng-style="{'background-color': '#ffffff'}">
     <div layout="column" layout-align="center center" ng-show="playlistCntrl.itemSelected">
       <div layout="row" ng-style="playlistCntrl.frame_style">
-        <iframe ng-style="playlistCntrl.frame_style" src="{{playlistCntrl.trustSrc(playlistCntrl.itemSelected.lesson_item_asset_link)}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <!-- <iframe ng-style="playlistCntrl.frame_style" src="{{playlistCntrl.trustSrc(playlistCntrl.itemSelected.litem_asset_url)}}" frameborder="0" allowfullscreen></iframe> -->
+        <iframe width="1240" src="https://www.youtube.com/embed/F9GujgK0y2M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
     </div>
     <div layout-padding layout="column" layout-align="center center" ng-show="playlistCntrl.itemSelected">
       <p ng-style="{'max-width':'960px', 'background-color' : '#FAFAFA', 'border-radius' : '2%'}">
-        {{playlistCntrl.itemSelected.lesson_item_description}}
+        {{playlistCntrl.itemSelected.litem_desc}}
       </p>
     </div>
     <div layout-padding layout="column" layout-align="center center" ng-show="playlistCntrl.itemSelected">
       <p ng-style="{'max-width':'960px', 'background-color' : '#FAFAFA', 'border-radius' : '2%'}">
-        Have questions? Head to the <a href="" ng-style="{'text-decoration':'none'}">forums</a> for discussion with the NuEra Community.
+        Have questions? Head to the <a href="" ng-click="playlistCntrl.navigateToForum(mainCntrl)" ng-style="{'text-decoration':'none'}">forums</a> for discussion with the NuEra Community.
       </p>
     </div>
     <div layout-padding layout-margin layout="row" layout-align="end center" ng-show="playlistCntrl.itemSelected">

@@ -7,8 +7,10 @@ from .views import (
     UserDashboard,
     EnrollCourse,
     CourseLessonList,
-    LessonPlaylist
+    LessonPlaylist,
+    Forum
 )
+from .api_view import *
 
 urlpatterns = [
     path('', Index.as_view(), name='index-page'),
@@ -18,5 +20,11 @@ urlpatterns = [
     path('user/dashboard/', UserDashboard.as_view(), name='user-dashboard'),
     path('enroll/course/', EnrollCourse.as_view(), name='enroll-course'),
     path('course/lessonview/', CourseLessonList.as_view(), name='course-lessonview'),
-    path('lesson/playlist', LessonPlaylist.as_view(), name='lesson-playlist')
+    path('lesson/playlist', LessonPlaylist.as_view(), name='lesson-playlist'),
+    path('forum/', Forum.as_view(), name='forum'),
+
+    path("users/<str:email_id>/", UserRetrieveUpdateDestroy.as_view()),
+    path("users/user-fetch", UserFetch.as_view()),
+    path("users/user-logout", UserLogout.as_view()),
+    path("user-create/", UserCreate.as_view()),
 ]

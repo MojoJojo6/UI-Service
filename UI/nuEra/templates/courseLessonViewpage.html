@@ -3,15 +3,15 @@
 <div ng-controller="courseLessonViewpage as courseLesson" layout="column" flex layout-fill ng-style="{'background': 'linear-gradient(to bottom right, #64FFDA, #E040FB)'}">
 
   <div flex="10" layout="row" layout-align="start center">
-    <md-button class="md-icon-button" ng-click="mainCntrl.url = 'user/dashboard/' " ng-style="">
+    <md-button class="md-icon-button" ng-click="mainCntrl.url = 'user/dashboard/' " >
       <md-icon md-svg-icon="arrow-left"></md-icon>
     </md-button>
   </div>
-  <md-content flex ng-style="{'background': 'transparent' }">
+  <md-content flex ng-style="{'background': 'transparent'}">
     <div flex layout="column" layout-align="center center">
-      <md-card layout-margin layout-padding ng-repeat="lesson in courseLesson.course.lessons" layout="column" layout-align="center start" ng-style="{'max-width' : '600px'}">
+      <md-card layout-margin layout-padding ng-repeat="lesson in courseLesson.course.lessons" layout="column" layout-align="center start" ng-style="{'max-width' : '600px', 'min-width': '600px'}">
         <div flex layout="row" flex ng-style="{'margin' : '0px'}"><label class="md-title">{{lesson.lesson_name}}</label></div>
-        <div flex layout="row" flex ng-style="{'margin' : '0px'}"><p class="md-body-1">{{lesson.lesson_description}}</p></div>
+        <div flex layout="row" flex ng-style="{'margin' : '0px'}"><p class="md-body-1">{{lesson.lesson_desc}}</p></div>
         <div flex layout="row" flex="10" layout-fill layout-align="end end" ng-style="{'margin' : '0px'}">
           <md-button class="md-raised md-primary" ng-click="courseLesson.navigate(mainCntrl, lesson)">View</md-button>
         </div>

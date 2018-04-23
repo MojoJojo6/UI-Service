@@ -29,11 +29,14 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'nuEra.User'
 
+SESSION_EXPIRY = 300 # expiry in seconds
+
 # Application definition
 
 INSTALLED_APPS = [
     'corsheaders',
     'nuEra',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

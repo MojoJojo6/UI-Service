@@ -1,0 +1,31 @@
+{% load staticfiles %}
+{% verbatim %}
+<div ng-controller="ForumController as forumCntrl" layout="column" layout-fill flex ng-cloak ng-style="{'background-color': '#EDEDED'}">
+    <div layout="row" layout-align="start start" flex="20">
+        <md-button class="md-icon-button md-padding" ng-click="mainCntrl.url = 'course/lessonview/'">
+            <md-icon md-svg-icon="arrow-left"></md-icon>
+        </md-button>
+        <div layout="row" layout-align="center center" flex>
+            <h1 class="md-display-3">Forum Room</h1>
+        </div>
+        <div layout="row" layout-margin>
+            <div md-whiteframe="2" layout-padding layout-margin>Status: {{forumCntrl.connection_status}}</div>
+            <md-button class="md-icon-button md-primary md-raised" ng-click="forumCntrl.connect()"><md-icon class="material-icons">refresh</md-icon></md-button>
+        </div>
+    </div>
+    <div flex="20" layout="row" layout-align="center center" layout-padding>
+        <div layout="row" flex layout-align="space-around center">
+            <md-input-container flex-gt-sm >
+                <label>Add New Thread</label>
+                <input type="text" ng-model="forumCntrl.new_comment" flex-gt-sm>
+            </md-input-container>
+            <md-button layout-margin class="md-primary md-raised" ng-click="forumCntrl.onSend()">Send</md-button> 
+        </div>
+    </div>
+    <div flex layout-padding>
+        <md-content ng-style="{'background-color': '#EDEDED'}">
+            <comment-list collection="forumCntrl.comment_list" socket="forumCntrl.socket" user-id="forumCntrl.user_id" user-first-name="forumCntrl.user_first_name" user-last-name="forumCntrl.user_last_name" course-id="forumCntrl.course_id" room-name="forumCntrl.room_name"></comment-list>
+        </md-content>
+    </div>
+</div>
+{% endverbatim %}

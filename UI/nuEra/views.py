@@ -1,7 +1,11 @@
 from django.views.generic import TemplateView
-
+from django.shortcuts import render
+from django.shortcuts import redirect
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
+logged_in_user = {}
 
 class Index(TemplateView):
     """
@@ -9,12 +13,28 @@ class Index(TemplateView):
     """
     template_name = "index.html"
 
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a Logged in user.
+        context['user'] = logged_in_user
+        return context
+
+
 
 class Login(TemplateView):
     """
     Template View of Login Page.
     """
     template_name = "login.html"
+
+    @csrf_exempt
+    def post(self, request, *args, **kwargs):
+        global logged_in_user
+        if request.method == "POST":
+            logged_in_user = request.data
+            print('User: ', logged_in_user)
+        return render(request,"", context=logged_in_user)
 
 
 class Register(TemplateView):
@@ -37,6 +57,15 @@ class UserDashboard(TemplateView):
     """
     template_name = "user_dashboard.html"
 
+    @csrf_exempt
+    def delete(self, request, *args, **kwargs):
+        global logged_in_user
+        if request.method == "DELETE":
+            logged_in_user = {}
+            print('User: ', logged_in_user)
+        return HttpResponse("Logout Success")
+
+
 
 class EnrollCourse(TemplateView):
     """
@@ -57,3 +86,11 @@ class LessonPlaylist(TemplateView):
     TemplateView of CourseLessonList
     """
     template_name = "lessonPlaylist.html"
+
+
+class Forum(TemplateView):
+    """
+    TemplateView of CourseLessonList
+    """
+    template_name = "forum.html"
+
