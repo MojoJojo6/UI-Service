@@ -31,7 +31,7 @@
 
       <div layout="row" ng-style="{'overflow-x' : 'auto', 'overflow-y' : 'hidden'}">
         <md-card layout="column" ng-repeat="course in category.courses" md-whiteframe="2" ng-click="dashCntrl.navigate(mainCntrl,course)" layout-wrap>
-            <div ng-style="{'width' : '300px', 'height' : '275px'}"><img src="https://picsum.photos/300/275/?random"></div>
+            <div ng-style="{'width' : '300px', 'height' : '275px'}"><img width="300px" height="275px" src="{{course.course_icon_url}}"></div>
             <div layout-padding><label>{{course.course_name}}</label></div>
         </md-card>
       </div>
