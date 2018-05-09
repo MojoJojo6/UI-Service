@@ -5,9 +5,9 @@ var course_Service_port = '8001';
 var forum_discussion_port = '8002';
 var ui_service_port = '8003';
 
-var domain_ip_addr = 'http://13.232.39.58:'
+var domain_ip_addr = 'http://13.232.29.105:'
 
-var forum_domain = '13.232.39.58:';
+var forum_domain = '13.232.29.105:';
 
 var user_service_csrf = "";
 
@@ -110,7 +110,7 @@ my_app.controller('RegisterController', function($http, dataService, $mdDialog){
         }
     };
 
-    self.onPost = function (mainCntrl) {
+    self.onPost = function (ev, mainCntrl) {
         $http({
             url : domain_ip_addr + user_service_port + "/api/user-create/",
             method : "POST",
@@ -138,7 +138,7 @@ my_app.controller('RegisterController', function($http, dataService, $mdDialog){
             .textContent('Information given is not valid, try again!')
             .ariaLabel('Information given is not valid, try again!')
             .ok('Ok')
-            .targetEvent(ev)
+            .targetEvent(null)
           );  
         });
 

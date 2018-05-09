@@ -69,7 +69,7 @@
 
       <div layout="row" layout-align="space-between center" flex>
         <a href="" ng-style="{'font-size': '13px'}" ng-click="register.onNotYetRegistered(mainCntrl)">Already a User?</a>
-        <md-button layout-margin class="md-raised md-primary" ng-click="register.onPost(mainCntrl)">Register</md-button>
+        <md-button layout-margin class="md-raised md-primary" ng-click="register.onPost($event, mainCntrl)">Register</md-button>
       </div>
     </form>
   </md-card>

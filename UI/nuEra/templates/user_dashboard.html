@@ -11,7 +11,7 @@
       <h1 class="md-headline md-padding">Your Courses</h1>
       <div flex ng-repeat="courses in dashCntrl.enrolled_courses">
           <md-button class="md-accent" ng-click="dashCntrl.navigateToYourCourse(mainCntrl, courses)" ng-style="{'width' : '100%', 'height' : '40px', 'margin' : '0px'}">{{courses.course_name}} </md-button>
-          <md-progress-linear md-mode="determinate" ng-value="75" ng-init="value=Math.floor((Math.random() * 100) + 1);"></md-progress-linear>
+          <md-progress-linear md-mode="determinate" ng-value="Math.floor(Math.random() *100 + 1 )" ng-init="value=Math.floor((Math.random() * 100) + 1);"></md-progress-linear>
       </div>
     </md-content>
     <div class="md-padding" layout="column" layout-align="end end" flex>
