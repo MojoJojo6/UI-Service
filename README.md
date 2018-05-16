@@ -22,11 +22,12 @@ git clone https://github.com/MojoJojo6/UI-Service.git
 
 ### Install python libraries to run the project.
 ```
-python -m pip install django (if pip error: https://stackoverflow.com/questions/41501636/how-to-install-pip3-on-windows)
+python -m pip install django
 python -m pip install djangorestframework
 python -m pip install django-channels 
 python -m pip install django-cors-headers
 ```
+if pip error: https://stackoverflow.com/questions/41501636/how-to-install-pip3-on-windows
 
 ### Setting up database (Run commands mentioned below in cmd)
 
