@@ -13,49 +13,69 @@ It provides HTML, CSS and static files for Web Application.
 * Navigate to Capstone_39 via command prompt.
 
 ### Clone our project repositories from GitHub (Run commands mentioned below in cmd)
-1. git clone https://github.com/MojoJojo6/UserService.git
-1. git clone https://github.com/MojoJojo6/CourseService.git
-1. git clone https://github.com/MojoJojo6/ForumDiscussion.git
-1. git clone https://github.com/MojoJojo6/UI-Service.git
+```
+git clone https://github.com/MojoJojo6/UserService.git
+git clone https://github.com/MojoJojo6/CourseService.git
+git clone https://github.com/MojoJojo6/ForumDiscussion.git
+git clone https://github.com/MojoJojo6/UI-Service.git
+```
 
 ### Install python libraries to run the project.
-1. python -m pip install django (if pip error: https://stackoverflow.com/questions/41501636/how-to-install-pip3-on-windows)
-1. python -m pip install djangorestframework
-1. python -m pip install django-channels 
-1. python -m pip install django-cors-headers
+```
+python -m pip install django (if pip error: https://stackoverflow.com/questions/41501636/how-to-install-pip3-on-windows)
+python -m pip install djangorestframework
+python -m pip install django-channels 
+python -m pip install django-cors-headers
+```
 
 ### Setting up database (Run commands mentioned below in cmd)
 
 #### User-Service
-1. python UserService\manage.py makemigrations
-1. python UserService\manage.py migrate
+```
+python UserService\manage.py makemigrations
+python UserService\manage.py migrate
+```
 
 #### Course-Service
-1. python CourseService\manage.py makemigrations
-1. python CourseService\manage.py migrate
+```
+python CourseService\manage.py makemigrations
+python CourseService\manage.py migrate
+```
 
 #### Forum-Service
-1. python ForumDiscussion\manage.py makemigrations
-1. python ForumDiscussion\manage.py migrate
+``` 
+python ForumDiscussion\manage.py makemigrations
+python ForumDiscussion\manage.py migrate
+```
 
 #### UI-Service
-1. python UI-Service\UI\manage.py makemigrations
-1. python UI-Service\UI\manage.py migrate
+```
+python UI-Service\UI\manage.py makemigrations
+python UI-Service\UI\manage.py migrate
+```
 
 ### Run Services
 Open 4 cmd prompts and navigate to Capstone_39.
 
 #### Run User-Service (cmd prompt 1)
-* python UserService\manage.py runserver 8000
+```
+python UserService\manage.py runserver 8000
+```
 
 #### Run Course-Service (cmd prompt 2)
-* python CourseService\manage.py runserver 8001
+```
+python CourseService\manage.py runserver 8001
+```
 
 #### Run Forum-Service (cmd prompt 3)
-* python ForumDiscussion\manage.py runserver 8002
+```
+python ForumDiscussion\manage.py runserver 8002
+```
 
 #### Run UI-Service (cmd prompt 4)
-* python UI-Service\UI\manage.py runserver 8003
+```
+python UI-Service\UI\manage.py runserver 8003
+```
 
 ### Load Web Page
 * Open your browser (Google Chrome preferable)
